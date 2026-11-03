@@ -1,5 +1,6 @@
 import type { ActionConfig } from "../Types.ts";
 import type { State } from "../core/State.ts";
+import { EventLogPanel } from "./elements/EventLogPanel.ts";
 import { GatherActionTab } from "./elements/GatherActionTab.ts";
 import { Header } from "./elements/Header.ts";
 import { InventoryPanel } from "./elements/InventoryPanel.ts";
@@ -14,6 +15,7 @@ export class GameUI {
   locationPanel: LocationPanel;
   inventoryPanel: InventoryPanel;
   gatherActionTab: GatherActionTab;
+  eventLogPanel: EventLogPanel;
   constructor() {
     this.header = new Header("game-header");
     this.statusBar = new StatusBar("status-bar");
@@ -21,6 +23,7 @@ export class GameUI {
     this.locationPanel = new LocationPanel("location-panel");
     this.inventoryPanel = new InventoryPanel("inventory-panel");
     this.gatherActionTab = new GatherActionTab("gather-action-tab");
+    this.eventLogPanel = new EventLogPanel("event-log");
     console.log("gameuiclass");
   }
   render(state: State, actions: ActionConfig) {
@@ -30,6 +33,7 @@ export class GameUI {
     this.playerPanel.render(state.player);
     this.locationPanel.render(state.currentLocation);
     this.inventoryPanel.render(state.player);
+    this.eventLogPanel.render(state.eventLog);
 
     //Actions
     this.gatherActionTab.render(actions, state);

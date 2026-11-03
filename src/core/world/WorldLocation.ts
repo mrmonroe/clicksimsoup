@@ -1,4 +1,4 @@
-import { Resource } from "./components/Resource.ts";
+import { Resource } from "../components/Resource.ts";
 
 export interface LocationConfig {
   name: string;
@@ -7,6 +7,7 @@ export interface LocationConfig {
   wood: number;
   stone: number;
 }
+export type ResourceKey = "wood" | "stone" | "food";
 
 export class WorldLocation {
   name: string;

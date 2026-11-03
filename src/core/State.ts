@@ -1,13 +1,15 @@
 import type { GameUI } from "../ui/GameUI.ts";
 import type { Player } from "./entities/Player.ts";
 import type { ActionConfig } from "../Types.ts";
-import type { World } from "./World.ts";
-import type { WorldLocation } from "./WorldLocation.ts";
+import type { World } from "./world/World.ts";
+import type { WorldLocation } from "./world/WorldLocation.ts";
+import type { EventLog } from "./logging/EventLog.ts";
 
 export class State {
   player: Player;
   world: World;
   currentLocation: WorldLocation;
+  eventLog: EventLog;
   private _actions: ActionConfig;
   private _ui: GameUI;
   private _isDirty: boolean;
@@ -16,12 +18,14 @@ export class State {
     player: Player,
     world: World,
     currentLocation: WorldLocation,
+    eventLog: EventLog,
     actions: ActionConfig,
     ui: GameUI,
   ) {
     this.player = player;
     this.world = world;
     this.currentLocation = currentLocation;
+    this.eventLog = eventLog;
 
     this._actions = actions;
     this._ui = ui;

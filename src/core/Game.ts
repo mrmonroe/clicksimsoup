@@ -1,17 +1,18 @@
 import { Player } from "./entities/Player.ts";
-import { World } from "./World.ts";
-import { ActionCfg } from "./ActionCfg.ts";
+import { World } from "./world/World.ts";
 import type { ActionConfig } from "../Types.ts";
-import type { WorldLocation } from "./WorldLocation.ts";
+import type { WorldLocation } from "./world/WorldLocation.ts";
 import { GameUI } from "../ui/GameUI.ts";
 import { State } from "./State.ts";
-
+import { EventLog } from "./logging/EventLog.ts";
+import { Actions } from "./actions/Actions.ts";
 
 export class Game {
   state: State;
   player: Player;
   world: World;
   currentLocation: WorldLocation;
+  eventLog: EventLog;
   gameUI: GameUI;
   cfg: any;
   actions: ActionConfig;
@@ -20,13 +21,15 @@ export class Game {
     this.player = new Player("dude");
     this.world = new World();
     this.currentLocation = this.world.locations[0];
-    this.actions = ActionCfg;
+    this.eventLog = new EventLog();
+    this.actions = new Actions();
     this.gameUI = new GameUI();
 
     this.state = new State(
       this.player,
       this.world,
       this.currentLocation,
+      this.eventLog,
       this.actions,
       this.gameUI,
     );

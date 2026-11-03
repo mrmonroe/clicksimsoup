@@ -1,4 +1,4 @@
-import type { WorldLocation } from "../../core/WorldLocation.ts";
+import type { WorldLocation } from "../../core/world/WorldLocation.ts";
 import type { Player } from "../../core/entities/Player.ts";
 
 export class StatusBar {

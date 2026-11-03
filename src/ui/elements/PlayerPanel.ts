@@ -30,18 +30,22 @@ export class PlayerPanel {
           <h3>Attributes</h3>
 
           <div class="stat-row">
-            <span>Strength</span>
-            <strong>${player.strength.value}</strong>
+            <span>Str</span>
+           <strong>${player.strength.value}</strong>
+            <span>+${player.strength.modifier.value}</span>
+            
           </div>
 
           <div class="stat-row">
-            <span>Endurance</span>
-            <strong>${player.endurance.value}</strong>
+            <span>Sta</span>
+            <strong>${player.stamina.value}</strong>
+            <span>+${player.stamina.modifier.value}</span>
           </div>
 
           <div class="stat-row">
-            <span>Survival</span>
-            <strong>${player.survival.value}</strong>
+            <span>Con</span>
+            <strong>${player.constitution.value}</strong>
+            <span>+${player.constitution.modifier.value}</span>
           </div>`;
   }
 }

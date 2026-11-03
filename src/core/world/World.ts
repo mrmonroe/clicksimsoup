@@ -1,4 +1,4 @@
-import { Time } from "./components/Time.ts";
+import { Time } from "../components/Time.ts";
 import { WorldLocation, type LocationConfig } from "./WorldLocation.ts";
 
 export class World {

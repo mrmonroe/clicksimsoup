@@ -1,3 +1,4 @@
+import { Modifier } from "./Modifier.ts";
 import { Resource } from "./Resource.ts";
 
 export class Stats extends Resource {
@@ -12,5 +13,8 @@ export class Stats extends Resource {
   }
   get percentage() {
     return Math.round((super.value / this._max) * 100);
+  }
+  get modifier() {
+    return new Modifier(super.value);
   }
 }

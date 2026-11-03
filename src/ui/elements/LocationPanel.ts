@@ -1,5 +1,5 @@
 import type { Time } from "../../core/components/Time.ts";
-import type { WorldLocation } from "../../core/WorldLocation.ts";
+import type { WorldLocation } from "../../core/world/WorldLocation.ts";
 
 export class LocationPanel {
   element: HTMLElement;
