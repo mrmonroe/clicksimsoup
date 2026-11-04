@@ -1,4 +1,4 @@
-import type { ActionCfg } from "./GatherAction.ts";
+import type { GameAction } from "../../../Types.ts";
 
 export const GatherActionsCfg = {
   gatherWood: {
@@ -34,4 +34,4 @@ export const GatherActionsCfg = {
     energyCost: 3,
     gatherCount: 1,
   },
-} satisfies Record<string, ActionCfg>;
+} satisfies Record<string, GameAction>;

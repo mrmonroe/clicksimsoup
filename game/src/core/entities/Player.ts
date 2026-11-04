@@ -2,7 +2,7 @@ import { Inventory } from "../components/Inventory.ts";
 import { Stats } from "../components/Stats.ts";
 import { Entity } from "./Entity.ts";
 
-export type StatKey = "strength" | "stamina" | "constitution";
+
 export class Player extends Entity {
   inventory: Inventory;
   hp: Stats;

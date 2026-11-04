@@ -12,7 +12,6 @@ export class EventLogPanel {
     }
 
     this.element = element;
-    console.log("headerclass");
   }
   entry(logEntry: LogEntry) {
     return `   <div class="event">

@@ -1,21 +1,23 @@
-import type { ActionCfg } from "./core/actions/GatherActionsCfg.ts";
+import type { GatherAction } from "./core/actions/gather/GatherAction.ts";
+import type { RestAction } from "./core/actions/rest/RestAction.ts";
 import type { Player } from "./core/entities/Player.ts";
 import type { EventLog } from "./core/logging/EventLog.ts";
-import type { State } from "./core/State.ts";
 import type { World } from "./core/world/World.ts";
-import type { WorldLocation } from "./core/world/WorldLocation.ts";
-
+import type { ResourceKey, WorldLocation } from "./core/world/WorldLocation.ts";
 export interface ActionConfig {
   gatherFood: GameAction;
   gatherWood: GameAction;
   mineStone: GameAction;
+  rest: GameAction;
+  sleep: GameAction;
 }
 
 export interface GameAction {
   name: string;
   key: string;
+  resourceKey: ResourceKey;
+  statKey: StatKey;
   tab: string;
-  resourceKey: string;
   icon: string;
   timeCost: number;
   energyCost: number;
@@ -31,4 +33,6 @@ export interface GameState {
   isDirty: Boolean;
 }
 
-export type ActionName = keyof typeof ActionCfg;
+export type StatKey = "strength" | "stamina" | "constitution" | "hp" | "energy";
+export type ActionRegistry = GatherAction | RestAction;
+

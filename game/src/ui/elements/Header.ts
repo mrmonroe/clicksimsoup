@@ -11,15 +11,14 @@ export class Header {
     }
 
     this.element = element;
-    console.log("headerclass");
   }
   render(time: Time): void {
     this.element.innerHTML = `
            <h1>CARDEL</h1>
 
         <div class="game-clock">
-          <span>Day ${time.day}</span>
-          <span>${time.printTime()}</span>
+          <span>${time.gameTime.toString()}</span>
+          
         </div>
 
         <button class="settings-button" aria-label="Settings">⚙</button>

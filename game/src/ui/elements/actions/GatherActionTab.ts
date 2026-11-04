@@ -1,5 +1,5 @@
-import type { ActionConfig } from "../../Types.ts";
-import type { State } from "../../core/State.ts";
+import type { Actions } from "../../../core/actions/Actions.ts";
+import type { State } from "../../../core/State.ts";
 import { ActionButton } from "./ActionButton.ts";
 
 export class GatherActionTab {
@@ -20,17 +20,16 @@ export class GatherActionTab {
     this.gatherWood = new ActionButton(elementId);
     this.mineStone = new ActionButton(elementId);
   }
-  render(actions: ActionConfig, state: State): void {
+  render(actions: Actions, state: State): void {
     this.element.innerHTML = `
     ${this.gatherFood.render(actions.gatherFood, state)}
     ${this.gatherWood.render(actions.gatherWood, state)}
     ${this.mineStone.render(actions.mineStone, state)}
-    `;
-
+`;
     this.gatherFood.initEvents(
       actions.gatherFood,
       state,
-      !!!state.currentLocation.food.value,
+      !!state.currentLocation.food.value,
     );
     this.gatherWood.initEvents(
       actions.gatherWood,

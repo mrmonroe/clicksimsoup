@@ -1,18 +1,7 @@
-import type { StatKey } from "../entities/Player.ts";
-import type { State } from "../State.ts";
-import type { ResourceKey } from "../world/WorldLocation.ts";
+import type { GameAction, StatKey } from "../../../Types.ts";
+import type { State } from "../../State.ts";
+import type { ResourceKey } from "../../world/WorldLocation.ts";
 
-export interface ActionCfg {
-  name: string;
-  key: string;
-  tab: string;
-  resourceKey: ResourceKey;
-  statKey: StatKey;
-  icon: string;
-  timeCost: number;
-  energyCost: number;
-  gatherCount: number;
-}
 export class GatherAction {
   name: string;
   key: string;
@@ -24,7 +13,7 @@ export class GatherAction {
   energyCost: number;
   gatherCount: number;
 
-  constructor(actionCfg: ActionCfg) {
+  constructor(actionCfg: GameAction) {
     this.name = actionCfg.name;
     this.key = actionCfg.key;
     this.tab = actionCfg.tab;
@@ -37,10 +26,11 @@ export class GatherAction {
   }
 
   execute(state: State) {
-    const amount = state.currentLocation[this.resourceKey].decrease(
+    const amount = state.currentLocation[this.resourceKey];
+    amount.decrease(
       this.gatherCount + state.player[this.statKey].modifier.value,
     );
-    state.player.inventory[this.resourceKey].increase(amount);
+    state.player.inventory[this.resourceKey].increase(amount.value);
     state.world.time.tick(this.timeCost);
     state.player.energy.decrease(
       this.energyCost + state.player.energy.modifier.value,

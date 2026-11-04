@@ -1,6 +1,5 @@
 import { Player } from "./entities/Player.ts";
 import { World } from "./world/World.ts";
-import type { ActionConfig } from "../Types.ts";
 import type { WorldLocation } from "./world/WorldLocation.ts";
 import { GameUI } from "../ui/GameUI.ts";
 import { State } from "./State.ts";
@@ -15,7 +14,7 @@ export class Game {
   eventLog: EventLog;
   gameUI: GameUI;
   cfg: any;
-  actions: ActionConfig;
+  actions: Actions;
 
   constructor() {
     this.player = new Player("dude");

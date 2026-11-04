@@ -8,68 +8,10 @@
     <link rel="stylesheet" href="styles.css" />
   </head>
   <body>
-    <div id="game" class="game">
-      <!-- HEADER -->
-      <header id="game-header" class="game-header"></header>
-
-      <!-- PLAYER STATUS -->
-      <section id="status-bar" class="status-bar"></section>
-
-      <!-- MAIN DASHBOARD -->
-      <main class="dashboard">
-        <!-- PLAYER PANEL -->
-        <section id="player-panel" class="panel player-panel"></section>
-
-        <!-- LOCATION PANEL -->
-        <section id="location-panel" class="panel location-panel"></section>
-
-        <!-- INVENTORY PANEL -->
-        <section id="inventory-panel" class="panel inventory-panel"></section>
-      </main>
-
-      <!-- ACTION PANEL -->
-      <section class="panel actions-panel">
-        <h2>Actions</h2>
-        <div id="errorMessage"></div>
-
-        <nav class="action-tabs" aria-label="Action categories">
-          <button class="tab active" type="button">Gather</button>
-          <button class="tab" type="button">Craft</button>
-          <button class="tab" type="button">Build</button>
-          <button class="tab" type="button">Explore</button>
-          <button class="tab" type="button">Rest</button>
-        </nav>
-
-        <div id="gather-action-tab" class="action-grid"></div>
-      </section>
-
-      <!-- EVENT LOG -->
-      <section class="panel event-panel">
-        <h2>Event Log</h2>
-
-        <div
-          id="event-log"
-          class="event-log"
-          role="log"
-          aria-label="Recent game events"
-        >
-          <div class="event">
-            <span class="event-time">08:30</span>
-            <span>You gathered 2 wood.</span>
-          </div>
-
-          <div class="event">
-            <span class="event-time">07:45</span>
-            <span>You gathered 1 food.</span>
-          </div>
-
-          <div class="event">
-            <span class="event-time">07:15</span>
-            <span>You entered Greenwood Forest.</span>
-          </div>
-        </div>
-      </section>
+    <div class="panel">
+      <h1>Cardel</h1>
+      <button id="newGame" class="button">New Game</button>
     </div>
-    <script type="module" src="/src/main.ts"></script>
+    <script type="module" src="main.ts"></script>
   </body>
 </html>
